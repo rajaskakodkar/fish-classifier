@@ -5,4 +5,6 @@ RUN pip install voila \
 
 COPY export.pkl /workspace/export.pkl
 COPY guitar-classifier-app.ipynb /workspace/app.ipynb
-CMD voila app.ipynb
+
+EXPOSE 8866
+ENTRYPOINT ["voila", "app.ipynb"]
