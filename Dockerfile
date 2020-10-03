@@ -14,11 +14,12 @@ RUN adduser --disabled-password \
 COPY . ${HOME}
 USER root
 RUN chown -R ${NB_UID} ${HOME}
+
+RUN apt-get update && apt-get install sudo 
+
 USER ${NB_USER}
 
-
-RUN apt-get update && apt-get install sudo \
-    && pip install voila \
+RUN pip install voila \
     && sudo jupyter serverextension enable voila --sys-prefix
 
 #COPY export.pkl /workspace/export.pkl
