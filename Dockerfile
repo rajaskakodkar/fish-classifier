@@ -14,13 +14,10 @@ RUN adduser --disabled-password \
 COPY . ${HOME}
 USER root
 RUN chown -R ${NB_UID} ${HOME}
-
-RUN apt-get update && apt-get install sudo 
-
 USER ${NB_USER}
 
 RUN pip install voila \
-    && sudo jupyter serverextension enable voila --sys-prefix
+    && jupyter serverextension enable voila --sys-prefix
 
 #COPY export.pkl /workspace/export.pkl
 #COPY guitar-classifier-app.ipynb /workspace/app.ipynb
