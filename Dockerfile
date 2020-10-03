@@ -1,6 +1,6 @@
 FROM fastdotai/fastai:2.0.2
 
-ARG NB_USER=jovyan
+ARG NB_USER=rajas
 ARG NB_UID=1000
 ENV USER ${NB_USER}
 ENV NB_UID ${NB_UID}
@@ -18,7 +18,7 @@ USER ${NB_USER}
 
 
 RUN pip install voila \
-    && jupyter serverextension enable voila --sys-prefix
+    && sudo jupyter serverextension enable voila --sys-prefix
 
 #COPY export.pkl /workspace/export.pkl
 #COPY guitar-classifier-app.ipynb /workspace/app.ipynb
