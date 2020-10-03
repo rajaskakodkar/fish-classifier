@@ -14,6 +14,7 @@ RUN adduser --disabled-password \
 COPY . ${HOME}
 USER root
 RUN chown -R ${NB_UID} ${HOME}
+RUN chown -R ${NB_UID} /opt/conda/etc/jupyter
 USER ${NB_USER}
 
 RUN pip install voila \
