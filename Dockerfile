@@ -17,6 +17,8 @@ RUN chown -R ${NB_UID} ${HOME}
 RUN chown -R ${NB_UID} /opt/conda/etc/jupyter
 USER ${NB_USER}
 
+WORKDIR ${HOME}
+
 RUN pip install voila \
     && jupyter serverextension enable voila --sys-prefix
 
@@ -24,4 +26,4 @@ RUN pip install voila \
 #COPY guitar-classifier-app.ipynb /workspace/app.ipynb
 
 EXPOSE 8866
-ENTRYPOINT ["voila", "/home/${NB_USER}/guitar-classifier-app.ipynb"]
+CMD ["voila", "guitar-classifier-app.ipynb"]
