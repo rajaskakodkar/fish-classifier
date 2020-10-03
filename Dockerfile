@@ -17,7 +17,8 @@ RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
 
 
-RUN pip install voila \
+RUN apt-get update && apt-get install sudo \
+    && pip install voila \
     && sudo jupyter serverextension enable voila --sys-prefix
 
 #COPY export.pkl /workspace/export.pkl
