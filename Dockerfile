@@ -1,4 +1,4 @@
-FROM fastdotai/fastai:2.0.2
+FROM fastdotai/fastai:2.0.16
 
 LABEL maintainer="rajaskakodkar16@gmail.com"
 
